@@ -16,7 +16,7 @@
           nvim-treesitter = (prev'.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
           mrr-config = prev.vimUtils.buildVimPlugin {
             name = "mrr-config";
-            src = ./;
+            src = "./";
           };
         });
         neovim = prev.neovim // {
