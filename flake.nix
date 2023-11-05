@@ -31,6 +31,6 @@
         };
       };
     in {
-      overlays.${system}.default = vimPluginsOverlay
+      overlays.${system}.default = vimPluginsOverlay;
     };
 }
