@@ -21,12 +21,12 @@
         });
         neovim = prev.neovim // {
           plugins = [
-            final.vimPlugins.telescope-nvim;
-            final.vimPlugins.nvim-lspconfig; 
-            final.vimPlugins.nvim-cmp; 
-            final.vimPlugins.rose-pine;
-            final.vimPlugins.nvim-treesitter;
-            final.vimPlugins.mrr-config;
+            final.vimPlugins.telescope-nvim
+            final.vimPlugins.nvim-lspconfig
+            final.vimPlugins.nvim-cmp
+            final.vimPlugins.rose-pine
+            final.vimPlugins.nvim-treesitter
+            final.vimPlugins.mrr-config
           ];
         };
       };
