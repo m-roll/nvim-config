@@ -16,7 +16,7 @@
           nvim-treesitter = (prev'.nvim-treesitter.withPlugins (plugins: prev.tree-sitter.allGrammars));
           mrr-config = prev.vimUtils.buildVimPlugin {
             name = "mrr-config";
-            src = "./";
+            src = ./src;
           };
         });
         neovim = prev.neovim // {
@@ -27,6 +27,7 @@
             final.vimPlugins.rose-pine
             final.vimPlugins.nvim-treesitter
             final.vimPlugins.mrr-config
+            final.vimPlugins.vim-tmux-navigator
           ];
         };
       };
