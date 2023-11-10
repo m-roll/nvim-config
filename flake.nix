@@ -35,6 +35,6 @@
           ];
       };
     in {
-      legacyPackages.${system}.default = vimPluginsOverlay;
+      legacyPackages.${system}.default = neovim;
     };
 }
