@@ -35,12 +35,7 @@
             vimPlugins.vim-tmux-navigator
           ];
         };
-        neovim = pkgs.neovim // nvim_attrs;
-	neovim-unwrapped = pkgs.neovim-unwrapped // nvim_attrs;
     in {
-      legacyPackages.${system} = {
-        inherit neovim;
-	inherit neovim-unwrapped;
-      };
+      neovim-config.${system}.default = nvim_attrs;
     };
 }
