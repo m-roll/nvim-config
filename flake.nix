@@ -13,7 +13,7 @@
             name = "rose-pine";
             src = rose-pine;
           };
-          nvim-treesitter = (prev'.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
+          nvim-treesitter = (final'.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars));
           mrr-config = pkgs.vimUtils.buildVimPlugin {
             name = "mrr-config";
             src = ./src;
