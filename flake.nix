@@ -22,7 +22,6 @@
           # TODO: requiring feels unnecessary
           extraLuaConfig = ''
             require("mrr");
-	    echo "hi";
           '';
           plugins = [
             vimPlugins.telescope-nvim
