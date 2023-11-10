@@ -20,6 +20,10 @@
           };
         });
         neovim = prev.neovim // {
+          # TODO: requiring feels unnecessary
+          extraLuaConfig = ''
+            require("mrr");
+          '';
           plugins = [
             final.vimPlugins.telescope-nvim
             final.vimPlugins.nvim-lspconfig
