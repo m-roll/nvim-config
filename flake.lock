@@ -1,0 +1,43 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1699646264,
+        "narHash": "sha256-njnmvAon72WlDA7lN5lywKqxI00dA7j7lyjHp0lmwSE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cc0b49cc27e98e6b8375fdae0a5077aac1458d90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "rose-pine": "rose-pine"
+      }
+    },
+    "rose-pine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698263014,
+        "narHash": "sha256-AuhVM1Hr/iTNHk8+wLc+7EGAzrd9ml2akR/9JOeWxew=",
+        "owner": "rose-pine",
+        "repo": "neovim",
+        "rev": "92762f4fa2144c05db760ea254f4c399a56a7ef5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "repo": "neovim",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

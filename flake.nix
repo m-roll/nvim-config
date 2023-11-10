@@ -19,7 +19,7 @@
             src = ./src;
           };
         });
-        neovim = pkgs.neovim // {
+	nvim_attrs = {
           # TODO: requiring feels unnecessary
           extraLuaConfig = ''
             require("mrr");
@@ -33,8 +33,13 @@
             vimPlugins.mrr-config
             vimPlugins.vim-tmux-navigator
           ];
-      };
+        };
+        neovim = pkgs.neovim // nvim_attrs;
+	neovim-unwrapped = pkgs.neovim-unwrapped // nvim_attrs;
     in {
-      legacyPackages.${system}.default = neovim;
+      legacyPackages.${system} = {
+        inherit neovim;
+	inherit neovim-unwrapped;
+      };
     };
 }
