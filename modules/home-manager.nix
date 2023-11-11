@@ -1,6 +1,6 @@
 { config, pkgs, ...}:
 let
-  cfg = config.mrr-neovim;
+  cfg = config.programs.mrr-neovim;
   vimPlugins = pkgs.vimPlugins.extend (final': prev': {
     rose-pine = pkgs.vimUtils.buildVimPlugin {
       name = "rose-pine";
