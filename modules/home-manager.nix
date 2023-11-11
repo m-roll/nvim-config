@@ -1,5 +1,5 @@
 { rose-pine }:
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 let
   cfg = config.programs.mrr-neovim;
   vimPlugins = pkgs.vimPlugins.extend (final': prev': {
@@ -31,9 +31,9 @@ let
 in
 {
   options.programs.mrr-neovim = {
-    enable = mkEnableOption "neovim with mrr config";
+    enable = lib.mkEnableOption "neovim with mrr config";
   };
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.neovim = custom-neovim;
   };
 }
