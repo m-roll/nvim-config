@@ -9,7 +9,7 @@ let
     };
     mrr-config = pkgs.vimUtils.buildVimPlugin {
     name = "mrr-config";
-    src = custom-plugin-source;
+    src = custom-plugin-src;
     };
   });
   custom-neovim = {
