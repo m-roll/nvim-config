@@ -1,4 +1,4 @@
-{ rose-pine }:
+{ rose-pine, custom-plugin-src }:
 { config, pkgs, lib, ...}:
 let
   cfg = config.programs.mrr-neovim;
@@ -9,7 +9,7 @@ let
     };
     mrr-config = pkgs.vimUtils.buildVimPlugin {
     name = "mrr-config";
-    src = ./src;
+    src = custom-plugin-source;
     };
   });
   custom-neovim = {
