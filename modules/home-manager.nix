@@ -29,7 +29,7 @@ let
   };
 in
 {
-  options.mrr-config = {
+  options.programs.mrr-neovim = {
     enable = mkEnableOption "neovim with mrr config";
   };
   config = mkIf cfg.enable {
