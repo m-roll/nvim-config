@@ -1,3 +1,4 @@
+{ rose-pine }:
 { config, pkgs, ...}:
 let
   cfg = config.programs.mrr-neovim;

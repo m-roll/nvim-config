@@ -10,6 +10,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
         
     in {
-      nixosModules."home-manager" = import ./modules/home-manager.nix;
+      nixosModules."home-manager" = ( import ./modules/home-manager.nix { inherit rose-pine; } ) ;
     };
 }
