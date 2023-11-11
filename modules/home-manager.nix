@@ -11,7 +11,7 @@ let
     src = ./src;
     };
   });
-  neovim = {
+  custom-neovim = {
     enable = cfg.enable;
     extraLuaConfig = ''
       require("mrr");
@@ -29,6 +29,10 @@ let
   };
 in
 {
-  imports = [];
-  inherit neovim;
+  options.mrr-config = {
+    enable = mkEnableOption "neovim with mrr config";
+  };
+  config = mkIf cfg.enable {
+    neovim = custom-neovim;
+  };
 }
