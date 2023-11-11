@@ -33,6 +33,6 @@ in
     enable = mkEnableOption "neovim with mrr config";
   };
   config = mkIf cfg.enable {
-    neovim = custom-neovim;
+    programs.neovim = custom-neovim;
   };
 }
