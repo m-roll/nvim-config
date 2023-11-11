@@ -8,33 +8,8 @@
     let 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-        vimPlugins = pkgs.vimPlugins.extend (final': prev': {
-          rose-pine = pkgs.vimUtils.buildVimPlugin {
-            name = "rose-pine";
-            src = rose-pine;
-          };
-          mrr-config = pkgs.vimUtils.buildVimPlugin {
-            name = "mrr-config";
-            src = ./src;
-          };
-        });
-	nvim_attrs = {
-          # TODO: requiring feels unnecessary
-          extraLuaConfig = ''
-            require("mrr");
-          '';
-          plugins = [
-            vimPlugins.telescope-nvim
-            vimPlugins.nvim-lspconfig
-            vimPlugins.nvim-cmp
-            vimPlugins.rose-pine
-            vimPlugins.nvim-treesitter
-            vimPlugins.mrr-config
-            vimPlugins.vim-tmux-navigator
-            (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
-          ];
-        };
+        
     in {
-      neovim-config.${system}.default = nvim_attrs;
+      nixosModules."home-manager" = import ./modules/home-manager.nix;
     };
 }
