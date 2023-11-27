@@ -56,6 +56,7 @@ local on_attach = function(client, bufnr)
         vim.lsp.buf.format()
       end,
     })
+  end
 end
 lspconfig.pyright.setup {
   on_attach = on_attach,
