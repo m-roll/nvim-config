@@ -37,7 +37,7 @@ in
 {
   options.programs.mrr-neovim = {
     enable = lib.mkEnableOption "neovim with mrr config";
-    include_lsps = lib.mkEnableOption "include the LSPs defined in the config files";
+    include_lsps = lib.mkDefault true;
   };
   config = lib.mkMerge [
     lib.mkIf cfg.enable {
