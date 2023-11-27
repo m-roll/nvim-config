@@ -37,14 +37,16 @@ in
 {
   options.programs.mrr-neovim = {
     enable = lib.mkEnableOption "neovim with mrr config";
-    include_lsps = lib.mkDefault true;
+    include_lsps = lib.mkOption = {
+      type = types.bool;
+    };
   };
   config = lib.mkMerge [
     ( lib.mkIf cfg.enable {
       programs.neovim = custom-neovim;
     } )
-    # lib.mkIf cfg.include_lsps {
-    #  home.packages = lsps;
-    # }
+    ( lib.mkIf cfg.include_lsps {
+      home.packages = lsps;
+    }
   ];
 }
