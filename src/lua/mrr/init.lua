@@ -45,10 +45,27 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
+local format_group = vim.api.nvim_create_augroup("LspFormatting", {})
+local on_attach = function(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    })
+end
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+}
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+}
 lspconfig.hls.setup{
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
+  on_attach = on_attach,
 }
 
 -- Global mappings.
