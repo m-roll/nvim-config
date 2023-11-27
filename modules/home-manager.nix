@@ -43,8 +43,8 @@ in
     lib.mkIf cfg.enable {
       programs.neovim = custom-neovim;
     }
-    lib.mkIf cfg.include_lsps {
-      home.packages = lsps;
-    }
+    # lib.mkIf cfg.include_lsps {
+    #  home.packages = lsps;
+    # }
   ];
 }
