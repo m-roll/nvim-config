@@ -47,6 +47,6 @@ in
     } )
     ( lib.mkIf cfg.include_lsps {
       home.packages = lsps;
-    }
+    } )
   ];
 }
