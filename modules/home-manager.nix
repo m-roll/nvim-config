@@ -40,9 +40,9 @@ in
     include_lsps = lib.mkDefault true;
   };
   config = lib.mkMerge [
-    lib.mkIf cfg.enable {
+    ( lib.mkIf cfg.enable {
       programs.neovim = custom-neovim;
-    }
+    } )
     # lib.mkIf cfg.include_lsps {
     #  home.packages = lsps;
     # }
