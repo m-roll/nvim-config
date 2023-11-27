@@ -38,7 +38,7 @@ in
   options.programs.mrr-neovim = {
     enable = lib.mkEnableOption "neovim with mrr config";
     include_lsps = lib.mkOption {
-      type = types.bool;
+      type = lib.types.bool;
     };
   };
   config = lib.mkMerge [
