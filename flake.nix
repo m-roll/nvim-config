@@ -12,7 +12,7 @@
     in {
       nixosModules."home-manager" = ( import ./modules/home-manager.nix { 
         inherit rose-pine;
-	nixd = nixd.package;
+	nixd = nixd.packages.${system};
 	custom-plugin-src = ./src; 
       } );
     };
