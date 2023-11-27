@@ -44,7 +44,7 @@ in
       programs.neovim = custom-neovim;
     }
     lib.mkIf cfg.include_lsps {
-      home.packages = lsps
+      home.packages = lsps;
     }
   ];
 }
