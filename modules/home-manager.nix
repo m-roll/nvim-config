@@ -1,4 +1,4 @@
-{ rose-pine, custom-plugin-src }:
+{ rose-pine, custom-plugin-src, nixd }:
 { config, pkgs, lib, ...}:
 let
   cfg = config.programs.mrr-neovim;
@@ -12,6 +12,11 @@ let
     src = custom-plugin-src;
     };
   });
+  lsps = [
+    pkgs.lua-language-server
+    pkgs.haskellPackages.haskell-language-server
+    nixd
+  ];
   custom-neovim = {
     enable = cfg.enable;
     extraLuaConfig = ''
@@ -32,8 +37,14 @@ in
 {
   options.programs.mrr-neovim = {
     enable = lib.mkEnableOption "neovim with mrr config";
+    include_lsps = lib.mkEnableOption "include the LSPs defined in the config files";
   };
-  config = lib.mkIf cfg.enable {
-    programs.neovim = custom-neovim;
-  };
+  config = lib.mkMerge [
+    lib.mkIf cfg.enable {
+      programs.neovim = custom-neovim;
+    }
+    lib.mkIf cfg.include_lsps {
+      home.packages = lsps
+    }
+  ];
 }

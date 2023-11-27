@@ -16,15 +16,6 @@ vim.bo.tabstop = 8 -- make it obvious if there's any tab funny business
 -- TODO: tab characters matter for Makefiles. Should automatically set buffer for Makefiles to let me use tabs normally
 vim.bo.shiftwidth = 2
 
--- ALE
--- vim.g.ale_fixers = {
---    ['nix'] = {"nixfmt"},
---    ['lua'] = {"lua-format"},
---    ['haskell'] = {"stylish-haskell"},
---    ['javascript'] = {"prettier", "eslint"}
--- };
--- vim.g.ale_fix_on_save = true
-
 -- CMP
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -59,6 +50,12 @@ local on_attach = function(client, bufnr)
   end
 end
 lspconfig.pyright.setup {
+  on_attach = on_attach,
+}
+lspconfig.nixd.setup {
+  on_attach = on_attach,
+}
+lspconfig.lua_ls.setup {
   on_attach = on_attach,
 }
 lspconfig.tsserver.setup {
