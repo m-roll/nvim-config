@@ -65,6 +65,9 @@ lspconfig.hls.setup {
 	filetypes = { 'haskell', 'lhaskell', 'cabal' },
 	on_attach = on_attach,
 }
+lspconfig.elixirls.setup {
+	on_attach = on_attach,
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
