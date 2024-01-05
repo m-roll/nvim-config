@@ -16,7 +16,7 @@ let
     pkgs.lua-language-server
     pkgs.haskellPackages.haskell-language-server
     nixd
-    pkgs.elixirls
+    pkgs.elixir-ls
   ];
   custom-neovim = {
     enable = cfg.enable;
