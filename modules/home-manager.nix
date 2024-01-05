@@ -21,7 +21,7 @@ let
   custom-neovim = {
     enable = cfg.enable;
     extraLuaConfig = ''
-      NVIM_CONFIG_ELIXIR_LS_PATH = "${pkgs.elixir-ls}/lib/language-server.sh"
+      NVIM_CONFIG_ELIXIR_LS_PATH = "${pkgs.elixir-ls}/lib/language_server.sh"
       require("mrr");
     '';
     plugins = [
