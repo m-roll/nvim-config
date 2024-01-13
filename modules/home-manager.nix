@@ -17,6 +17,7 @@ let
     pkgs.haskellPackages.haskell-language-server
     nil
     pkgs.elixir-ls
+    pkgs.nixfmt
   ];
   custom-neovim = {
     enable = cfg.enable;
@@ -32,6 +33,7 @@ let
       vimPlugins.nvim-treesitter
       vimPlugins.mrr-config
       vimPlugins.vim-tmux-navigator
+      vimPlugins.formatter
       (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     ];
   };

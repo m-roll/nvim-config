@@ -71,6 +71,18 @@ lspconfig.elixirls.setup {
 	cmd = { NVIM_CONFIG_ELIXIR_LS_PATH },
 }
 
+-- Formatters when it's not available with the LSP
+-- re-use the lsp format group so formatters aren't fighting with each other
+require('formatter').setup = {
+	logging = true,
+	log_level = vim.log.levels.WARN,
+	filetype = {
+		nix = {
+			require('formatter.filetypes.nix').nixfmt,
+		}
+	}
+}
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
