@@ -1,4 +1,4 @@
-{ rose-pine, custom-plugin-src, nixd }:
+{ rose-pine, custom-plugin-src, nil }:
 { config, pkgs, lib, ...}:
 let
   cfg = config.programs.mrr-neovim;
@@ -15,7 +15,7 @@ let
   lsps = [
     pkgs.lua-language-server
     pkgs.haskellPackages.haskell-language-server
-    nixd
+    nil
     pkgs.elixir-ls
   ];
   custom-neovim = {

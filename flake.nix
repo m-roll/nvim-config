@@ -4,15 +4,17 @@
     url = "github:rose-pine/neovim";
     flake = false;
   };
-  inputs.nixd.url = github:nix-community/nixd;
-  outputs = { self, nixpkgs, rose-pine, nixd, ...}:
+  inputs.nil = {
+    url = "github:oxalica/nil";
+  };
+  outputs = { self, nixpkgs, rose-pine, nil, ...}:
     let 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};       
     in {
       nixosModules."home-manager" = ( import ./modules/home-manager.nix { 
         inherit rose-pine;
-	nixd = nixd.packages.${system}.default;
+	nil = nil.packages.${system}.default;
 	custom-plugin-src = ./src; 
       } );
     };
