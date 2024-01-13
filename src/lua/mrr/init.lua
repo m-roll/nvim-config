@@ -75,7 +75,7 @@ lspconfig.elixirls.setup {
 -- re-use the lsp format group so formatters aren't fighting with each other
 require('formatter').setup = {
 	logging = true,
-	log_level = vim.log.levels.WARN,
+	log_level = vim.log.levels.INFO,
 	filetype = {
 		nix = { require('formatter.filetypes.nix').nixfmt },
 	}
