@@ -53,9 +53,6 @@ end
 lspconfig.pyright.setup {
 	on_attach = on_attach,
 }
-lspconfig.nixd.setup {
-	on_attach = on_attach,
-}
 lspconfig.lua_ls.setup {
 	on_attach = on_attach,
 }
