@@ -73,7 +73,7 @@ lspconfig.elixirls.setup {
 
 -- Formatters when it's not available with the LSP
 -- re-use the lsp format group so formatters aren't fighting with each other
-require('formatter').setup = {
+require('formatter').setup {
 	logging = true,
 	log_level = vim.log.levels.INFO,
 	filetype = {
