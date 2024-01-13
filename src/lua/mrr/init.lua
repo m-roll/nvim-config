@@ -82,7 +82,7 @@ require('formatter').setup = {
 }
 
 vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
-vim.api.nvim_create_autocmd("BufWritePre", {
+vim.api.nvim_create_autocmd("BufWritePost", {
 	group = format_group,
 	command = ":FormatWrite"
 })
