@@ -33,8 +33,8 @@ let
       vimPlugins.nvim-treesitter
       vimPlugins.mrr-config
       vimPlugins.vim-tmux-navigator
-      vimPlugins.formatter
-      (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+      vimPlugins.formatter-nvim
+     (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     ];
   };
 in
