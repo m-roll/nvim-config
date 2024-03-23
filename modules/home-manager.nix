@@ -1,5 +1,5 @@
-{ rose-pine, custom-plugin-src, nil }:
-{ config, pkgs, lib, ...}:
+{ rose-pine, custom-plugin-src, nil, conform }:
+{ config, pkgs, lib, ... }:
 let
   cfg = config.programs.mrr-neovim;
   vimPlugins = pkgs.vimPlugins.extend (final': prev': {
@@ -8,8 +8,12 @@ let
       src = rose-pine;
     };
     mrr-config = pkgs.vimUtils.buildVimPlugin {
-    name = "mrr-config";
-    src = custom-plugin-src;
+      name = "mrr-config";
+      src = custom-plugin-src;
+    };
+    conform = pkgs.vimUtils.buildVimPlugin {
+      name = "conform";
+      src = conform;
     };
   });
   lsps = [
@@ -30,27 +34,22 @@ let
       vimPlugins.nvim-lspconfig
       vimPlugins.nvim-cmp
       vimPlugins.rose-pine
+      vimPlugins.conform
       vimPlugins.nvim-treesitter
       vimPlugins.mrr-config
       vimPlugins.vim-tmux-navigator
       vimPlugins.formatter-nvim
-     (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+      (vimPlugins.nvim-treesitter.withPlugins
+        (plugins: pkgs.tree-sitter.allGrammars))
     ];
   };
-in
-{
+in {
   options.programs.mrr-neovim = {
     enable = lib.mkEnableOption "neovim with mrr config";
-    include_lsps = lib.mkOption {
-      type = lib.types.bool;
-    };
+    include_lsps = lib.mkOption { type = lib.types.bool; };
   };
   config = lib.mkMerge [
-    ( lib.mkIf cfg.enable {
-      programs.neovim = custom-neovim;
-    } )
-    ( lib.mkIf cfg.include_lsps {
-      home.packages = lsps;
-    } )
+    (lib.mkIf cfg.enable { programs.neovim = custom-neovim; })
+    (lib.mkIf cfg.include_lsps { home.packages = lsps; })
   ];
 }

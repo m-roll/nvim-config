@@ -1,0 +1,34 @@
+local lspconfig = require('lspconfig')
+local format_group = vim.api.nvim_create_augroup("__formatter__", {})
+local on_attach = function(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = format_group,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format()
+      end,
+    })
+  end
+end
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+}
+lspconfig.lua_ls.setup {
+  on_attach = on_attach,
+}
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+}
+lspconfig.nil_ls.setup {
+  on_attach = on_attach,
+}
+lspconfig.hls.setup {
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+  on_attach = on_attach,
+}
+lspconfig.elixirls.setup {
+  on_attach = on_attach,
+  cmd = { NVIM_CONFIG_ELIXIR_LS_PATH },
+}
