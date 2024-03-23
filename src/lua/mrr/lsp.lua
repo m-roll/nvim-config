@@ -1,5 +1,8 @@
 local lspconfig = require('lspconfig')
 local format_group = vim.api.nvim_create_augroup("__formatter__", {})
+
+-- formatting now in mrr.formatting
+--[[
 local on_attach = function(client, bufnr)
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
@@ -12,6 +15,7 @@ local on_attach = function(client, bufnr)
 		})
 	end
 end
+--]]
 lspconfig.pyright.setup {
 	on_attach = on_attach,
 }
