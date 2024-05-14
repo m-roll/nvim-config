@@ -21,7 +21,7 @@ let
     pkgs.haskellPackages.haskell-language-server
     nil
     pkgs.elixir-ls
-    pkgs.nixfmt
+    pkgs.nixfmt-rfc-style
   ];
   custom-neovim = {
     enable = cfg.enable;
