@@ -1,21 +1,33 @@
-{ rose-pine, custom-plugin-src, nil, conform }:
-{ config, pkgs, lib, ... }:
+{
+  rose-pine,
+  custom-plugin-src,
+  nil,
+  conform,
+}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.programs.mrr-neovim;
-  vimPlugins = pkgs.vimPlugins.extend (final': prev': {
-    rose-pine = pkgs.vimUtils.buildVimPlugin {
-      name = "rose-pine";
-      src = rose-pine;
-    };
-    mrr-config = pkgs.vimUtils.buildVimPlugin {
-      name = "mrr-config";
-      src = custom-plugin-src;
-    };
-    conform = pkgs.vimUtils.buildVimPlugin {
-      name = "conform";
-      src = conform;
-    };
-  });
+  vimPlugins = pkgs.vimPlugins.extend (
+    final': prev': {
+      rose-pine = pkgs.vimUtils.buildVimPlugin {
+        name = "rose-pine";
+        src = rose-pine;
+      };
+      mrr-config = pkgs.vimUtils.buildVimPlugin {
+        name = "mrr-config";
+        src = custom-plugin-src;
+      };
+      conform = pkgs.vimUtils.buildVimPlugin {
+        name = "conform";
+        src = conform;
+      };
+    }
+  );
   lsps = [
     pkgs.lua-language-server
     pkgs.haskellPackages.haskell-language-server
@@ -39,11 +51,11 @@ let
       vimPlugins.mrr-config
       vimPlugins.vim-tmux-navigator
       vimPlugins.formatter-nvim
-      (vimPlugins.nvim-treesitter.withPlugins
-        (plugins: pkgs.tree-sitter.allGrammars))
+      (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     ];
   };
-in {
+in
+{
   options.programs.mrr-neovim = {
     enable = lib.mkEnableOption "neovim with mrr config";
     include_lsps = lib.mkOption { type = lib.types.bool; };

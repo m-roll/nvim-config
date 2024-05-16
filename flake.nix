@@ -33,6 +33,6 @@
           custom-plugin-src = ./src;
         }
       );
-      formatter = pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }
