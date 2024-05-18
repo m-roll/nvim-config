@@ -45,6 +45,7 @@ let
       vimPlugins.telescope-nvim
       vimPlugins.nvim-lspconfig
       vimPlugins.nvim-cmp
+      vimPlugins.diffview-nvim
       vimPlugins.rose-pine
       vimPlugins.conform
       vimPlugins.nvim-treesitter
