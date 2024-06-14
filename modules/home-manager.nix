@@ -34,6 +34,7 @@ let
     nil
     pkgs.elixir-ls
     pkgs.nixfmt-rfc-style
+    pkgs.stylua
   ];
   custom-neovim = {
     enable = cfg.enable;
