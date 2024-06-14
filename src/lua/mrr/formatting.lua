@@ -17,6 +17,6 @@ require("conform").setup({
 	}
 })
 
-require("conform").formatters.stylua({
+require("conform").formatters.stylua = {
 	prepend_args = { "--indent-type=Spaces" },
-})
+}
