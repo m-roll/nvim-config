@@ -21,6 +21,9 @@ lspconfig.elixirls.setup({
     on_attach = on_attach,
     cmd = { NVIM_CONFIG_ELIXIR_LS_PATH },
 })
+lspconfig.nickel_ls.setup({
+    on_attach = on_attach,
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
