@@ -3,6 +3,7 @@
   custom-plugin-src,
   nil,
   conform,
+  nickel-lang-lsp,
 }:
 {
   config,
@@ -35,6 +36,7 @@ let
     pkgs.elixir-ls
     pkgs.nixfmt-rfc-style
     pkgs.stylua
+    nickel-lang-lsp
   ];
   custom-neovim = {
     enable = cfg.enable;
