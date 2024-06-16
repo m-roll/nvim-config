@@ -61,6 +61,7 @@ let
       vimPlugins.mrr-config
       vimPlugins.vim-tmux-navigator
       vimPlugins.formatter-nvim
+      vimPlugins.vim-nickel
       (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     ];
   };
