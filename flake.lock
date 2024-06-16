@@ -451,11 +451,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1718458055,
-        "narHash": "sha256-SYRBcjwxpahpOQUysVFj86pppNreHxSrrwj6EJXzShA=",
+        "lastModified": 1718496382,
+        "narHash": "sha256-NaW5ueDhypjwcKixR3C2vt2u5BmuB1YsVX+O9MqGmbw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "51d19c834db89797044f4a2d5176b37f79e4a831",
+        "rev": "242522b8fed8d63f262fd6e747ba1e4372b59a8e",
         "type": "github"
       },
       "original": {
@@ -530,7 +530,8 @@
         "nickel": "nickel",
         "nil": "nil",
         "nixpkgs": "nixpkgs_5",
-        "rose-pine": "rose-pine"
+        "rose-pine": "rose-pine",
+        "vim-nickel": "vim-nickel"
       }
     },
     "rose-pine": {
@@ -701,6 +702,22 @@
       "original": {
         "owner": "tweag",
         "repo": "topiary",
+        "type": "github"
+      }
+    },
+    "vim-nickel": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695740542,
+        "narHash": "sha256-wb8UNs0eF6939pjZWafDoFgRh/10rKorJFZtPbTkn/k=",
+        "owner": "nickel-lang",
+        "repo": "vim-nickel",
+        "rev": "f22898d88affc0958453b42e1147ba076637e0ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nickel-lang",
+        "repo": "vim-nickel",
         "type": "github"
       }
     }

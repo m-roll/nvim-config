@@ -11,6 +11,10 @@
     url = "github:stevearc/conform.nvim";
     flake = false;
   };
+  inputs.vim-nickel = {
+    url = "github:nickel-lang/vim-nickel";
+    flake = false;
+  };
   inputs.nickel.url = "github:tweag/nickel/stable";
   outputs =
     {
@@ -19,6 +23,7 @@
       nil,
       conform,
       nickel,
+      vim-nickel,
       ...
     }:
     let
@@ -28,7 +33,7 @@
     {
       nixosModules."home-manager" = (
         import ./modules/home-manager.nix {
-          inherit rose-pine conform;
+          inherit rose-pine conform vim-nickel;
           nickel-lang-lsp = nickel.packages.${system}.nickel-lang-lsp;
           nil = nil.packages.${system}.default;
           custom-plugin-src = ./src;

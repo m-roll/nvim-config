@@ -4,6 +4,8 @@
   nil,
   conform,
   nickel-lang-lsp,
+  vim-nickel,
+  ...
 }:
 {
   config,
@@ -26,6 +28,10 @@ let
       conform = pkgs.vimUtils.buildVimPlugin {
         name = "conform";
         src = conform;
+      };
+      vim-nickel = pkgs.vimUtils.buildVimPlugin {
+        name = "vim-nickel";
+        src = vim-nickel;
       };
     }
   );
