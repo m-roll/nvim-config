@@ -62,6 +62,12 @@ let
       vimPlugins.vim-tmux-navigator
       vimPlugins.formatter-nvim
       vimPlugins.vim-nickel
+      vimPlugins.vim-sexp
+      vimPlugins.vim-sexp-mappings-for-regular-people
+      vimPlugins.nvim-surround
+      vimPlugins.conjure
+      vimPlugins.cmp-conjure
+      # todo: add the cmp conjure for nrepl
       (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     ];
   };
