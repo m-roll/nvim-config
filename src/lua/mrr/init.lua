@@ -11,8 +11,6 @@ vim.wo.number = true
 vim.wo.scrolloff = 999
 
 require("nvim-surround").setup({})
-require("vim-sexp-mappings-for-regular-people").setup({})
-require("conjure").setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
